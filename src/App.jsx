@@ -4,6 +4,10 @@ import toast from "react-hot-toast";
 
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { FaTrashCan } from "react-icons/fa6";
+import { ImCheckboxChecked } from "react-icons/im";
+
 import {
   addTodo,
   removeTodo,
@@ -65,14 +69,15 @@ function App() {
             >
               <h4>{todo.text}</h4>
               <div>
-                <input
-                  onClick={() => dispatch(changeStatusTodo(todo.id))}
-                  type="checkbox"
+                <button
                   checked={todo.completed}
                   readOnly
-                />
+                  onClick={() => dispatch(changeStatusTodo(todo.id))}
+                >
+                  <ImCheckboxChecked />
+                </button>
                 <button onClick={() => dispatch(removeTodo(todo.id))}>
-                  Delete
+                  <FaTrashCan />
                 </button>
               </div>
             </div>
