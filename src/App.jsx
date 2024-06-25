@@ -4,7 +4,12 @@ import toast from "react-hot-toast";
 
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, removeTodo, changeStatusTodo, allDeleteTodo } from "./app/todoSlice";
+import {
+  addTodo,
+  removeTodo,
+  changeStatusTodo,
+  allDeleteTodo,
+} from "./app/todoSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,12 +47,13 @@ function App() {
         loop
       ></video>
       <div className="data-wrapper">
-        {" "}
-        <h1>Todo list - {todos.length}</h1>
+        <h1 className="text-3xl underline text-center">
+          Todo list - {todos.length}
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="form-input">
             <span>Text:</span>
-            <input ref={inputText} type="text" />
+            <input placeholder="Add todo" ref={inputText} type="text" />
           </div>
           <button>Add</button>
         </form>
@@ -75,7 +81,9 @@ function App() {
         <div className="data-count">
           <h4>Completed: {completedCount}</h4>
           <h4>Uncompleted: {unCompletedCount}</h4>
-          <button onClick={() => dispatch(allDeleteTodo())}>Delete all of them!</button>
+          <button onClick={() => dispatch(allDeleteTodo())}>
+            Delete all of them!
+          </button>
         </div>
       </div>
     </div>
