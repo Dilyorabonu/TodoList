@@ -6,12 +6,14 @@ import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FaTrashCan } from "react-icons/fa6";
+import { FaEdit } from "react-icons/fa";
 import { ImCheckboxChecked } from "react-icons/im";
 
 import {
   addTodo,
   removeTodo,
   changeStatusTodo,
+  editTodo,
   allDeleteTodo,
 } from "./app/todoSlice";
 
@@ -75,6 +77,9 @@ function App() {
                   onClick={() => dispatch(changeStatusTodo(todo.id))}
                 >
                   <ImCheckboxChecked />
+                </button>
+                <button onClick={() => dispatch(editTodo(todo.id))}>
+                  <FaEdit />
                 </button>
                 <button onClick={() => dispatch(removeTodo(todo.id))}>
                   <FaTrashCan />

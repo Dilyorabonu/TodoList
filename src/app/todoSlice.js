@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { list } from "postcss";
 import toast from "react-hot-toast";
 
 const initialStateFromLocal = () => {
@@ -54,5 +55,11 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, changeStatusTodo, allDeleteTodo } = todosSlice.actions;
+export const {
+  addTodo,
+  removeTodo,
+  changeStatusTodo,
+  editTodo,
+  allDeleteTodo,
+} = todosSlice.actions;
 export default todosSlice.reducer;
